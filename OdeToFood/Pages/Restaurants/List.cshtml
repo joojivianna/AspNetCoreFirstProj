@@ -19,6 +19,7 @@
     </div>
 </form>
 
+
 <table class="table">
     @foreach (var restaurant in Model.Restaurants)
     {
@@ -32,12 +33,15 @@
                 asp-route-restaurantId="@restaurant.Id">
                 <i class="glyphicon glyphicon-zoom-in"></i>
             </a>
-        </td>
-        <td>
             <a class="btn btn-lg" 
                 asp-page="./Edit" 
                 asp-route-restaurantId="@restaurant.Id">
                 <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-lg" 
+                asp-page="./Delete" 
+                asp-route-restaurantId="@restaurant.Id">
+                <i class="glyphicon glyphicon-trash"></i>
             </a>
         </td>
     </tr>
@@ -46,4 +50,6 @@
 
 <a asp-page="./Edit" class="btn btn-primary">Add Item</a>
 
-<div>@Model.Message</div>
+@section footer {
+    <div>@Model.Message</div>
+}
